@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import DOMPurify from 'dompurify'
+import { motion } from 'framer-motion'
 
 import './Coin.css'
 
@@ -21,10 +22,18 @@ const Coin = () => {
   return (
     <div>
         <div className='coin-container'>
-            <div className='content'>
+            <motion.div 
+            className='content'
+            initial={{opacity:0, y:40}}
+            animate={{opacity:1, y:0}}
+            transition={{duration:0.4}}>
                 <h1>{coin.name}</h1>
-            </div>
-            <div className='content'>
+            </motion.div>
+            <motion.div 
+            className='content'
+            initial={{opacity:0, y:40}}
+            animate={{opacity:1, y:0}}
+            transition={{duration:0.4, delay:0.15}}>
                 <div className='rank'>
                     <span className='rank-btn'>Rank # {coin.market_cap_rank}</span>
                 </div>
@@ -38,8 +47,12 @@ const Coin = () => {
                     {coin.market_data?.current_price ? <h1>${coin.market_data.current_price.usd.toLocaleString()}</h1> : null}
                     </div>
                 </div>
-            </div>
-            <div className='content'>
+            </motion.div>
+            <motion.div 
+            className='content'
+            initial={{opacity:0, y:40}}
+            animate={{opacity:1, y:0}}
+            transition={{duration:0.4, delay: 0.2}}>
                 <table>
                     <thead>
                         <tr>
@@ -62,8 +75,12 @@ const Coin = () => {
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div className='content'>
+            </motion.div>
+            <motion.div 
+            className='content'
+            initial={{opacity:0, y:40}}
+            animate={{opacity:1, y:0}}
+            transition={{duration:0.4, delay:0.25}}>
                 <div className='stats'>
                     <div className='left'>
                         <div className='row'>
@@ -86,8 +103,12 @@ const Coin = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='content'>
+            </motion.div>
+            <motion.div 
+            className='content'
+            initial={{opacity:0, y:40}}
+            animate={{opacity:1, y:0}}
+            transition={{duration:0.4, delay:0.3}}>
                     <div className='about'>
                         <h3>About</h3>
                         <p dangerouslySetInnerHTML={{
@@ -96,7 +117,7 @@ const Coin = () => {
                         
                         </p>
                     </div>
-                </div>
+            </motion.div>
         </div>
     </div>
   )
