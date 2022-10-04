@@ -1,8 +1,9 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const CoinItem = (props) => {
   return (
-    <div className='coin-row'>
+    <motion.div className='coin-row' whileHover={{scale:1.03, transition: {ease: 'easeInOut', duration:0.2}}}>
         <p>{props.coins.market_cap_rank}</p>
         <div className='img-symbol'>
             <img src={props.coins.image} alt=''/>
@@ -12,7 +13,7 @@ const CoinItem = (props) => {
         <p>{props.coins.price_change_percentage_24h.toFixed(2)}%</p>
         <p className='hide-mobile'>${props.coins.total_volume.toLocaleString()}</p>
         <p className='hide-mobile'>${props.coins.market_cap.toLocaleString()}</p>
-    </div>
+    </motion.div>
   )
 }
 
